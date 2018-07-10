@@ -1,0 +1,2 @@
+#include "Generated.xcconfig"
+EXTRA_GEN_SNAPSHOT_OPTIONS=--obfuscate
