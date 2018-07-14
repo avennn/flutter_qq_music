@@ -47,9 +47,9 @@ class CategoryCardState extends State<CategoryCard> {
             new Text(
               title,
               style: new TextStyle(
-                  color: Colors.black,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w400
+                color: Colors.black,
+                fontSize: 14.0,
+                fontWeight: FontWeight.w400
               ),
             )
           ],

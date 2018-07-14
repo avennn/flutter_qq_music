@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../constants/index.dart';
+import '../constants/index.dart' show Constants;
 
 class MicroPlayer extends StatefulWidget {
   @override
@@ -23,12 +23,12 @@ class MicroPlayerState extends State<MicroPlayer> {
               height: 40.0,
               width: 40.0,
               decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.all(new Radius.circular(20.0)),
-                  image: new DecorationImage(
-                    fit: BoxFit.fill,
-                    alignment: FractionalOffset.center,
-                    image: new AssetImage('assets/images/home/brief_recommend_radio_station.jpg'),
-                  )
+                borderRadius: new BorderRadius.all(new Radius.circular(20.0)),
+                image: new DecorationImage(
+                  fit: BoxFit.fill,
+                  alignment: FractionalOffset.center,
+                  image: new AssetImage('assets/images/home/brief_recommend_radio_station.jpg'),
+                )
               ),
             ),
             new Column(

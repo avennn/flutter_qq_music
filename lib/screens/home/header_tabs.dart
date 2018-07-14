@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../constants/index.dart';
+import 'package:flutter_qq_music/constants/index.dart' show Constants, HomeTabs;
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_qq_music/screens/home/reactive.dart' show SwitchTabAction, HomeState;
+import 'package:flutter_qq_music/app_state.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 class HeaderTabs extends StatefulWidget {
   @override
@@ -7,27 +11,27 @@ class HeaderTabs extends StatefulWidget {
 }
 
 class HeaderTabsState extends State<HeaderTabs> {
-  Widget myTabButton() {
+  Widget myTabButton(HomeTabs tabType) {
     return new GestureDetector(
-      child: new Container(
+        child: new Container(
         padding: EdgeInsets.only(left: 12.0, right: 12.0, top: 9.0),
         height: 44.0,
         child: new Text(
           '我的',
           style: new TextStyle(
-            fontSize: 17.0,
-            fontWeight: FontWeight.w100,
+            fontSize: tabType == HomeTabs.MY ? 18.0 : 17.0,
+            fontWeight: tabType == HomeTabs.MY ? FontWeight.w600 : FontWeight.w400,
             color: const Color.fromRGBO(255, 255, 255, 0.9)
           ),
         ),
       ),
       onTap: () {
-        print('tap my');
+        StoreProvider.of<AppState>(context).dispatch(new SwitchTabAction(HomeTabs.MY));
       }
     );
   }
 
-  Widget musicHallTabButton() {
+  Widget musicHallTabButton(HomeTabs tabType) {
     return new GestureDetector(
       child: new Container(
         padding: EdgeInsets.only(left: 12.0, right: 12.0, top: 8.0),
@@ -35,19 +39,19 @@ class HeaderTabsState extends State<HeaderTabs> {
         child: Text(
           '音乐馆',
           style: new TextStyle(
-            fontSize: 18.0,
-            fontWeight: FontWeight.w600,
+            fontSize: tabType == HomeTabs.MUSIC_HALL ? 18.0 : 17.0,
+            fontWeight: tabType == HomeTabs.MUSIC_HALL ? FontWeight.w600 : FontWeight.w400,
             color: const Color(0xFFFFFFFF)
           )
         )
       ),
       onTap: () {
-        print('tap music hall');
+        StoreProvider.of<AppState>(context).dispatch(new SwitchTabAction(HomeTabs.MUSIC_HALL));
       }
     );
   }
 
-  Widget findTabButton() {
+  Widget findTabButton(HomeTabs tabType) {
     return new GestureDetector(
       child: new Container(
         padding: EdgeInsets.only(left: 12.0, right: 12.0, top: 9.0),
@@ -55,14 +59,14 @@ class HeaderTabsState extends State<HeaderTabs> {
         child: new Text(
           '发现',
           style: new TextStyle(
-            fontSize: 17.0,
-            fontWeight: FontWeight.w100,
+            fontSize: tabType == HomeTabs.FIND ? 18.0 : 17.0,
+            fontWeight: tabType == HomeTabs.FIND ? FontWeight.w600 : FontWeight.w400,
             color: const Color.fromRGBO(255, 255, 255, 0.9)
           )
         ),
       ),
       onTap: () {
-        print('tap find');
+        StoreProvider.of<AppState>(context).dispatch(new SwitchTabAction(HomeTabs.FIND));
       }
     );
   }
@@ -79,12 +83,33 @@ class HeaderTabsState extends State<HeaderTabs> {
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Row(
+              new Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  myTabButton(),
-                  musicHallTabButton(),
-                  findTabButton()
+                  new StoreConnector<AppState, HomeTabs>(
+                    builder: (context, tabType) {
+                      return myTabButton(tabType);
+                    },
+                    converter: (store) {
+                      return store.state.homeState.tabType;
+                    }
+                  ),
+                  new StoreConnector<AppState, HomeTabs>(
+                    builder: (context, tabType) {
+                      return musicHallTabButton(tabType);
+                    },
+                    converter: (store) {
+                      return store.state.homeState.tabType;
+                    }
+                  ),
+                  new StoreConnector<AppState, HomeTabs>(
+                    builder: (context, tabType) {
+                      return findTabButton(tabType);
+                    },
+                    converter: (store) {
+                      return store.state.homeState.tabType;
+                    }
+                  )
                 ],
               )
             ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './carousel_category_stack.dart' show CarouselCategoryStack;
 import './brief_recommend.dart' show BriefRecommend;
 import './recommend_song_list.dart' show RecommendSongList;
+import 'package:flutter_qq_music/screens/home/music_hall/change_recommend_bar.dart' show ChangeRecommendBar;
 
 class MusicHallBody extends StatefulWidget {
   @override
@@ -13,13 +14,13 @@ class MusicHallBody extends StatefulWidget {
 class MusicHallBodyState extends State<MusicHallBody> {
   Widget content() {
     return new Container(
-      height: 1000.0,
       color: Colors.white,
       child: new Column(
         children: <Widget>[
           new CarouselCategoryStack(),
           new BriefRecommend(),
-          new RecommendSongList()
+          new RecommendSongList(),
+          new ChangeRecommendBar()
         ],
       ),
     );
