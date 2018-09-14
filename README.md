@@ -1,5 +1,4 @@
 # flutter_qq_music
-
 A new Flutter application.
 
 ## Getting Started
