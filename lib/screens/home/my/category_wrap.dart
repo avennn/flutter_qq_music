@@ -51,7 +51,7 @@ class CategoryWrapState extends State<CategoryWrap> {
       child: new Wrap(
         children: <Widget>[
           card(Icons.headset, '全部音乐', amount: 107),
-          card(Icons.file_download, '下载音乐', amount: 100),
+          card(Icons.save_alt, '下载音乐', amount: 100),
           card(Icons.schedule, '最近播放', amount: 200),
           card(Icons.favorite_border, '我喜欢', amount: 9),
           card(Icons.alternate_email, '已购音乐'),

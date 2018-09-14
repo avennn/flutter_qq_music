@@ -3,6 +3,7 @@ import './carousel_category_stack.dart' show CarouselCategoryStack;
 import './brief_recommend.dart' show BriefRecommend;
 import './recommend_song_list.dart' show RecommendSongList;
 import 'package:flutter_qq_music/screens/home/music_hall/change_recommend_bar.dart' show ChangeRecommendBar;
+import 'package:flutter_qq_music/tools/device_info.dart' show DeviceInfo;
 
 class MusicHallBody extends StatefulWidget {
   @override
@@ -29,6 +30,7 @@ class MusicHallBodyState extends State<MusicHallBody> {
   @override
   Widget build(BuildContext context) {
     return new Container(
+      width: DeviceInfo().getDeviceWidth(context),
       decoration: new BoxDecoration(color: Colors.white),
       child: new SingleChildScrollView(
         child: content(),

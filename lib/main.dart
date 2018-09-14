@@ -3,6 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 //import 'package:redux_logging';
 import 'package:flutter_qq_music/screens/splash/index.dart';
+import 'package:flutter_qq_music/screens/home/index.dart';
 import 'package:flutter_qq_music/constants/index.dart' show Constants;
 import 'package:flutter_qq_music/app_state.dart';
 import 'package:flutter_qq_music/app_reducer.dart' show appReducer;
@@ -30,7 +31,7 @@ class FlutterQQMusic extends StatelessWidget {
         theme: new ThemeData(
           primaryColor: Constants.primaryColor
         ),
-        home: new SplashScreen()
+        home: new HomeScreen()
       )
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_qq_music/tools/device_info.dart' show DeviceInfo;
 
 class FindBody extends StatefulWidget {
   @override
@@ -28,6 +29,7 @@ class FindBodyState extends State<FindBody> {
   @override
   Widget build(BuildContext context) {
     return new Container(
+      width: DeviceInfo().getDeviceWidth(context),
       decoration: new BoxDecoration(color: Colors.white),
       child: new SingleChildScrollView(
         child: content(),
