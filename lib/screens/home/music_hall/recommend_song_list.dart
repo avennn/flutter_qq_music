@@ -6,7 +6,7 @@ import 'package:flutter_qq_music/screens/home/music_hall/song_list_card.dart' sh
 
 class RecommendSongList extends StatefulWidget {
   @override
-  RecommendSongListState createState() => new RecommendSongListState();
+  RecommendSongListState createState() => RecommendSongListState();
 }
 
 class RecommendSongListState extends State<RecommendSongList> {
@@ -16,23 +16,23 @@ class RecommendSongListState extends State<RecommendSongList> {
     // context no need to inject through arguments?
     double itemSideLen = (DeviceInfo().getDeviceWidth(context) - _hGap * 2) / 3;
 
-    return new GestureDetector(
+    return GestureDetector(
       onTap: () {
         print('tap song list item');
       },
-      child: new Container(
+      child: Container(
           padding: EdgeInsets.only(bottom: 14.0),
           width: itemSideLen,
           color: Colors.white,
-          child: new Column(
+          child: Column(
             children: <Widget>[
-              new SongListCard(playDesc),
-              new Container(
+              SongListCard(playDesc),
+              Container(
                 padding: EdgeInsets.symmetric(horizontal: 4.0),
                 alignment: AlignmentDirectional.topStart,
-                child: new Text(
+                child: Text(
                   title,
-                  style: new TextStyle(
+                  style: TextStyle(
                     color: Constants.defaultFontColor,
                     fontWeight: FontWeight.w400,
                     fontSize: 12.0,
@@ -47,7 +47,7 @@ class RecommendSongListState extends State<RecommendSongList> {
   }
 
   Widget wrapBody() {
-    return new Wrap(
+    return Wrap(
       spacing: _hGap,
       children: <Widget>[
         songListItem('今日推荐歌曲'),
@@ -61,10 +61,10 @@ class RecommendSongListState extends State<RecommendSongList> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      child: new Column(
+    return Container(
+      child: Column(
         children: <Widget>[
-          new RecommendHeader('为你推荐歌单', 'classified_song_list'),
+          RecommendHeader('为你推荐歌单', 'classified_song_list'),
           wrapBody()
         ],
       ),

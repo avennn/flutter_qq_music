@@ -8,45 +8,45 @@ import '../../video/index.dart';
 
 class CategoryCard extends StatefulWidget {
   @override
-  CategoryCardState createState() => new CategoryCardState();
+  CategoryCardState createState() => CategoryCardState();
 }
 
 class CategoryCardState extends State<CategoryCard> {
 
   void navigate(BuildContext context, String category) {
-    Navigator.push(context, new MaterialPageRoute<void>(
+    Navigator.push(context, MaterialPageRoute<void>(
       builder: (BuildContext context) {
         switch (category) {
           case 'RANK':
-            return new RankScreen();
+            return RankScreen();
           case 'CLASSIFIED_SONG_LIST':
-            return new ClassifiedSongListScreen();
+            return ClassifiedSongListScreen();
           case 'RADIO_STATION':
-            return new RadioStationScreen();
+            return RadioStationScreen();
           case 'VIDEO':
-            return new VideoScreen();
+            return VideoScreen();
           default:
-            return new SingerScreen();
+            return SingerScreen();
         }
       }
     ));
   }
 
   Widget createCategoryItem(BuildContext context, IconData icon, String title, String category) {
-    return new GestureDetector(
-      child: new Container(
+    return GestureDetector(
+      child: Container(
         color: Colors.white,
-        child: new Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Icon(
+            Icon(
               icon,
               color: Constants.primaryColor,
               size: 26.0,
             ),
-            new Text(
+            Text(
               title,
-              style: new TextStyle(
+              style: TextStyle(
                 color: Colors.black,
                 fontSize: 14.0,
                 fontWeight: FontWeight.w400
@@ -61,38 +61,38 @@ class CategoryCardState extends State<CategoryCard> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
       margin: EdgeInsets.symmetric(horizontal: Constants.defaultSideGap),
       height: 90.0,
       color: Colors.white,
-      child: new Container(
+      child: Container(
         margin: EdgeInsets.only(bottom: Constants.defaultSideGap),
-        child: new Material(
+        child: Material(
           elevation: 2.0,
           shadowColor: const Color.fromRGBO(127, 127, 127, 0.3),
-          child: new Container(
+          child: Container(
             color: Colors.white,
-            child: new Row(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                new Expanded(
+                Expanded(
                     flex: 1,
                     child: createCategoryItem(context, Icons.person, '歌手', 'SINGER')
                 ),
-                new Expanded(
+                Expanded(
                     flex: 1,
                     child: createCategoryItem(context, Icons.equalizer, '排行', 'RANK')
                 ),
-                new Expanded(
+                Expanded(
                     flex: 1,
                     child: createCategoryItem(context, Icons.dashboard, '分类歌单', 'CLASSIFIED_SONG_LIST')
                 ),
-                new Expanded(
+                Expanded(
                     flex: 1,
                     child: createCategoryItem(context, Icons.wifi_tethering, '电台', 'RADIO_STATION')
                 ),
-                new Expanded(
+                Expanded(
                     flex: 1,
                     child: createCategoryItem(context, Icons.videocam, '视频', 'VIDEO')
                 )

@@ -49,14 +49,14 @@ class PageCarousel extends StatefulWidget {
       assert(autoPlayDuration != null),
       assert(autoPlay != null),
       assert(initialIndex >= 0 && initialIndex < childrenCount),
-      pageController = new PageController(
+      pageController = PageController(
         initialPage: initialIndex,
         keepPage: true,
         viewportFraction: viewportFraction
       );
 
   @override
-  _PageCarouselState createState() => new _PageCarouselState();
+  _PageCarouselState createState() => _PageCarouselState();
 
   Future<Null> nextPage({Duration duration, Curve curve}) {
     return pageController.nextPage(duration: duration, curve: curve);
@@ -91,7 +91,7 @@ class _PageCarouselState extends State<PageCarousel> with TickerProviderStateMix
     super.initState();
 
     if (widget.autoPlay) {
-      _timer = new Timer.periodic(widget.autoPlayDuration, (_) {
+      _timer = Timer.periodic(widget.autoPlayDuration, (_) {
         widget.pageController.nextPage(
           duration: widget.animationDuration,
           curve: widget.animationCurve
@@ -120,7 +120,7 @@ class _PageCarouselState extends State<PageCarousel> with TickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    return new PageView(
+    return PageView(
       children: widget.children,
       onPageChanged: (index) {
         print(index);

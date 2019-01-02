@@ -3,20 +3,20 @@ import 'package:flutter_qq_music/tools/device_info.dart' show DeviceInfo;
 
 class FindBody extends StatefulWidget {
   @override
-  FindBodyState createState() => new FindBodyState();
+  FindBodyState createState() => FindBodyState();
 
 
 }
 
 class FindBodyState extends State<FindBody> {
   Widget content() {
-    return new Container(
+    return Container(
       color: Colors.white,
-      child: new Column(
+      child: Column(
         children: <Widget>[
-          new Text(
+          Text(
             '发现的主体',
-            style: new TextStyle(
+            style: TextStyle(
               color: Colors.red,
               fontSize: 18.0
             ),
@@ -28,10 +28,10 @@ class FindBodyState extends State<FindBody> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
       width: DeviceInfo().getDeviceWidth(context),
-      decoration: new BoxDecoration(color: Colors.white),
-      child: new SingleChildScrollView(
+      decoration: BoxDecoration(color: Colors.white),
+      child: SingleChildScrollView(
         child: content(),
       ),
     );

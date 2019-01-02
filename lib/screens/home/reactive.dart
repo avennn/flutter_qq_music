@@ -28,22 +28,22 @@ class HomeState {
   );
 
   static initial() {
-    List<MySongListObject> selfBuildSongList = new List();
-    List<MySongListObject> collectSongList = new List();
+    List<MySongListObject> selfBuildSongList = List();
+    List<MySongListObject> collectSongList = List();
     selfBuildSongList.add(
-      new MySongListObject('0', '周杰伦', 'assets/images/home/brief_recommend_radio_station.jpg', 6, 5)
+      MySongListObject('0', '周杰伦', 'assets/images/home/brief_recommend_radio_station.jpg', 6, 5)
     );
     selfBuildSongList.add(
-      new MySongListObject('0', '陈奕迅', 'assets/images/home/brief_recommend_radio_station.jpg', 13, 8)
+      MySongListObject('0', '陈奕迅', 'assets/images/home/brief_recommend_radio_station.jpg', 13, 8)
     );
     selfBuildSongList.add(
-      new MySongListObject('0', '粤语', 'assets/images/home/brief_recommend_radio_station.jpg', 30, 30)
+      MySongListObject('0', '粤语', 'assets/images/home/brief_recommend_radio_station.jpg', 30, 30)
     );
     selfBuildSongList.add(
-      new MySongListObject('0', '默认收藏', 'assets/images/home/brief_recommend_radio_station.jpg', 89, 88)
+      MySongListObject('0', '默认收藏', 'assets/images/home/brief_recommend_radio_station.jpg', 89, 88)
     );
 
-    return new HomeState(
+    return HomeState(
       HomeTabs.MUSIC_HALL,
       MySongListTabs.SELF_BUILD,
       selfBuildSongList,
@@ -76,7 +76,7 @@ class ChangeQuickFuncModalShowStatusAction {
 
 // Reducers
 HomeState switchTabReducer(HomeState state, SwitchTabAction action) {
-  return new HomeState(
+  return HomeState(
       action.tabType,
       state.mySongListTabType,
       state.selfBuildSongList,
@@ -86,7 +86,7 @@ HomeState switchTabReducer(HomeState state, SwitchTabAction action) {
 }
 
 HomeState switchMySongListTabReducer(HomeState state, SwitchMySongListTabAction action) {
-  return new HomeState(
+  return HomeState(
       state.tabType,
       action.mySongListTabType,
       state.selfBuildSongList,
@@ -96,7 +96,7 @@ HomeState switchMySongListTabReducer(HomeState state, SwitchMySongListTabAction 
 }
 
 HomeState changeQuickFuncModalShowStatusReducer(HomeState state, ChangeQuickFuncModalShowStatusAction action) {
-  return new HomeState(
+  return HomeState(
       state.tabType,
       state.mySongListTabType,
       state.selfBuildSongList,
@@ -107,7 +107,7 @@ HomeState changeQuickFuncModalShowStatusReducer(HomeState state, ChangeQuickFunc
 
 
 Reducer<HomeState> homeReducer = combineReducers<HomeState>([
-  new TypedReducer<HomeState, SwitchTabAction>(switchTabReducer),
-  new TypedReducer<HomeState, SwitchMySongListTabAction>(switchMySongListTabReducer),
-  new TypedReducer<HomeState, ChangeQuickFuncModalShowStatusAction>(changeQuickFuncModalShowStatusReducer),
+  TypedReducer<HomeState, SwitchTabAction>(switchTabReducer),
+  TypedReducer<HomeState, SwitchMySongListTabAction>(switchMySongListTabReducer),
+  TypedReducer<HomeState, ChangeQuickFuncModalShowStatusAction>(changeQuickFuncModalShowStatusReducer),
 ]);

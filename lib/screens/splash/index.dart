@@ -7,17 +7,17 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // 1s用于测试
     startTimeout(context, 1000);
-    return new Material(
-      child: new Stack(
+    return Material(
+      child: Stack(
         alignment: AlignmentDirectional.bottomCenter,
         children: <Widget>[
-          new Image.asset('assets/images/splash.jpg'),
-          new Container(
+          Image.asset('assets/images/splash.jpg'),
+          Container(
             margin: const EdgeInsets.only(bottom: 20.0),
-            child: new Text(
+            child: Text(
               'Product By Javen',
-              style: new TextStyle(
-                color: new Color(0xFF42A5F5)
+              style: TextStyle(
+                color: Color(0xFF42A5F5)
               ),
             ),
           )
@@ -27,9 +27,9 @@ class SplashScreen extends StatelessWidget {
   }
 
   handleTimeoutCallback(BuildContext context) {
-    Navigator.pushReplacement(context, new MaterialPageRoute<void>(
+    Navigator.pushReplacement(context, MaterialPageRoute<void>(
       builder: (BuildContext context) {
-        return new HomeScreen();
+        return HomeScreen();
       }
     ));
   }
@@ -39,6 +39,6 @@ class SplashScreen extends StatelessWidget {
     const sec = const Duration(seconds: 3);
     const ms = const Duration(milliseconds: 1);
     var duration = milliseconds == null ? sec : ms * milliseconds;
-    return new Timer(duration, () => handleTimeoutCallback(context));
+    return Timer(duration, () => handleTimeoutCallback(context));
   }
 }

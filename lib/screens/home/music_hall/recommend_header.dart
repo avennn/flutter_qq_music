@@ -8,18 +8,18 @@ class RecommendHeader extends StatelessWidget {
   RecommendHeader(this.title, this.toScreen);
 
   Widget clickableTitle() {
-    return new GestureDetector(
+    return GestureDetector(
       onTap: () {
         print('print tap recommend header title');
       },
-      child: new Container(
+      child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         height: _headerHeight,
         color: Colors.white,
-        child: new Center(
-          child:  new Text(
+        child: Center(
+          child:  Text(
             this.title,
-            style: new TextStyle(
+            style: TextStyle(
               color: Constants.defaultFontColor,
               fontSize: 18.0,
               fontWeight: FontWeight.w400
@@ -31,16 +31,16 @@ class RecommendHeader extends StatelessWidget {
   }
 
   Widget navigateButton() {
-    return new GestureDetector(
+    return GestureDetector(
       onTap: () {
         print('tap navigate button');
       },
-      child: new Container(
+      child: Container(
         width: 40.0,
         height: _headerHeight,
         color: Colors.white,
-        child: new Center(
-          child: new Icon(
+        child: Center(
+          child: Icon(
             Icons.chevron_right,
             size: 28.0,
             color: Colors.grey,
@@ -52,12 +52,12 @@ class RecommendHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Stack(
+    return Stack(
       alignment: AlignmentDirectional.topEnd,
       children: <Widget>[
-        new Container(
+        Container(
           height: _headerHeight,
-          child: new Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               clickableTitle()

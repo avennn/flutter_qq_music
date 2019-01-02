@@ -7,21 +7,21 @@ import 'package:flutter_qq_music/tools/device_info.dart' show DeviceInfo;
 
 class MusicHallBody extends StatefulWidget {
   @override
-  MusicHallBodyState createState() => new MusicHallBodyState();
+  MusicHallBodyState createState() => MusicHallBodyState();
 
 
 }
 
 class MusicHallBodyState extends State<MusicHallBody> {
   Widget content() {
-    return new Container(
+    return Container(
       color: Colors.white,
-      child: new Column(
+      child: Column(
         children: <Widget>[
-          new CarouselCategoryStack(),
-          new BriefRecommend(),
-          new RecommendSongList(),
-          new ChangeRecommendBar()
+          CarouselCategoryStack(),
+          BriefRecommend(),
+          RecommendSongList(),
+          ChangeRecommendBar()
         ],
       ),
     );
@@ -29,10 +29,10 @@ class MusicHallBodyState extends State<MusicHallBody> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
       width: DeviceInfo().getDeviceWidth(context),
-      decoration: new BoxDecoration(color: Colors.white),
-      child: new SingleChildScrollView(
+      decoration: BoxDecoration(color: Colors.white),
+      child: SingleChildScrollView(
         child: content(),
       ),
     );

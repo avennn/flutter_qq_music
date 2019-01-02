@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class RadioStationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(title: new Text('电台'),),
+    return Scaffold(
+      appBar: AppBar(title: Text('电台'),),
     );
   }
 }

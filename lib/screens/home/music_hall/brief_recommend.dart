@@ -5,7 +5,7 @@ import '../../../constants/index.dart';
 
 class BriefRecommend extends StatefulWidget {
   @override
-  BriefRecommendState createState() => new BriefRecommendState();
+  BriefRecommendState createState() => BriefRecommendState();
 }
 
 class BriefRecommendState extends State<BriefRecommend> {
@@ -18,51 +18,51 @@ class BriefRecommendState extends State<BriefRecommend> {
   bool _isPlaying = false;
 
   Widget personalRadioStation() {
-    return new Container(
+    return Container(
       height: _radioContainerHeight,
       width: _radioContainerWidth,
       color: Colors.white,
-      child: new Stack(
+      child: Stack(
         children: <Widget>[
-          new Container(
+          Container(
             margin: EdgeInsets.symmetric(vertical: _vStep * 2),
-            color: new Color.fromRGBO(127, 127, 127, 0.2),
+            color: Color.fromRGBO(127, 127, 127, 0.2),
           ),
-          new Container(
+          Container(
             margin: EdgeInsets.only(top: _vStep, bottom: _vStep, right: _hStep),
-            color: new Color.fromRGBO(127, 127, 127, 0.4),
+            color: Color.fromRGBO(127, 127, 127, 0.4),
           ),
-          new GestureDetector(
+          GestureDetector(
             onTap: () {
               setState(() {
                 _isPlaying = !_isPlaying;
               });
             },
-            child: new Container(
+            child: Container(
               margin: EdgeInsets.only(right: _hStep * 2),
-              child: new Stack(
+              child: Stack(
                 alignment: AlignmentDirectional.center,
                 children: <Widget>[
-                  new Container(
-                    child: new Image.asset('assets/images/home/brief_recommend_radio_station.jpg', fit: BoxFit.cover,),
+                  Container(
+                    child: Image.asset('assets/images/home/brief_recommend_radio_station.jpg', fit: BoxFit.cover,),
                   ),
-                  new Stack(
+                  Stack(
                     alignment: AlignmentDirectional.bottomCenter,
                     children: <Widget>[
-                      new Container(
+                      Container(
                         height: _radioContainerHeight,
                         width: _radioContainerWidth,
-                        child: new Icon(
+                        child: Icon(
                           _isPlaying ? Icons.pause : Icons.play_arrow,
                           color: Colors.white,
                           size: 36.0,
                         ),
                       ),
-                      new Container(
+                      Container(
                         padding: EdgeInsets.only(bottom: 10.0),
-                        child: new Text(
+                        child: Text(
                           '个性电台',
-                          style: new TextStyle(
+                          style: TextStyle(
                             color: Colors.white,
                             fontSize: 17.0,
                             fontWeight: FontWeight.w400
@@ -81,35 +81,35 @@ class BriefRecommendState extends State<BriefRecommend> {
   }
 
   Widget rightRecommendItem(BuildContext context, String type, String assetUri, String title, String desc) {
-    return new GestureDetector(
+    return GestureDetector(
       onTap: () {
-        Navigator.push(context, new MaterialPageRoute<void>(builder: (BuildContext context) {
-          return type == 'NEW_SONG_RECOMMEND' ? new NewSongRecommendScreen() : new DigitalAlbumScreen();
+        Navigator.push(context, MaterialPageRoute<void>(builder: (BuildContext context) {
+          return type == 'NEW_SONG_RECOMMEND' ? NewSongRecommendScreen() : DigitalAlbumScreen();
         }));
       },
-      child: new Container(
+      child: Container(
         height: _rightRowItemHeight,
-        decoration: new BoxDecoration(color: Color.fromRGBO(200, 200, 200, 0.2)),
-        child: new Row(
+        decoration: BoxDecoration(color: Color.fromRGBO(200, 200, 200, 0.2)),
+        child: Row(
           children: <Widget>[
-            new Expanded(
-              child: new Container(
+            Expanded(
+              child: Container(
                 padding: EdgeInsets.only(left: 16.0),
-                child: new Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    new Text(
+                    Text(
                       title,
-                      style: new TextStyle(
+                      style: TextStyle(
                         color: Constants.defaultFontColor,
                         fontSize: 17.0,
                         fontWeight: FontWeight.w400
                       ),
                     ),
-                    new Text(
+                    Text(
                       desc,
-                      style: new TextStyle(
+                      style: TextStyle(
                           color: Constants.defaultFontColor,
                           fontSize: 12.0,
                           fontWeight: FontWeight.w400
@@ -119,7 +119,7 @@ class BriefRecommendState extends State<BriefRecommend> {
                 ),
               )
             ),
-            new Image.asset(
+            Image.asset(
               assetUri,
               width: _rightRowItemHeight,
               height: _rightRowItemHeight,
@@ -132,11 +132,11 @@ class BriefRecommendState extends State<BriefRecommend> {
   }
 
   Widget rightSideRecommend(BuildContext context) {
-    return new Container(
+    return Container(
       margin: EdgeInsets.only(left: 10.0),
       height: _radioContainerHeight,
       color: Colors.white,
-      child: new Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           rightRecommendItem(context, 'NEW_SONG_RECOMMEND', 'assets/images/home/brief_recommend_radio_station.jpg', '新歌推荐', '阿粉夏日回归魅力非凡'),
@@ -148,13 +148,13 @@ class BriefRecommendState extends State<BriefRecommend> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
       padding: EdgeInsets.symmetric(horizontal: Constants.defaultSideGap, vertical: 13.0),
       color: Colors.white,
-      child: new Row(
+      child: Row(
         children: <Widget>[
           personalRadioStation(),
-          new Expanded(
+          Expanded(
             flex: 1,
             child: rightSideRecommend(context),
           )

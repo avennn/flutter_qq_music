@@ -3,35 +3,35 @@ import 'package:flutter/material.dart';
 class ChangeRecommendBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      child: new Row(
+    return Container(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          new GestureDetector(
+          GestureDetector(
             onTap: () {
               print('on tab change a batch');
             },
-            child: new Container(
+            child: Container(
               padding: EdgeInsets.symmetric(horizontal: 26.0, vertical: 5.0),
-              decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.all(new Radius.circular(2.0)),
-                  border: new Border.all(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(2.0)),
+                  border: Border.all(
                       color: Colors.black,
                       width: 0.5
                   )
               ),
-              child: new Row(
+              child: Row(
                 children: <Widget>[
-                  new Icon(
+                  Icon(
                     Icons.loop,
                     size: 16.0,
                     color: Colors.black,
                   ),
-                  new Container(
+                  Container(
                     margin: EdgeInsets.only(left: 8.0),
-                    child: new Text(
+                    child: Text(
                       '换一批',
-                      style: new TextStyle(
+                      style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w200,
                           fontSize: 14.0

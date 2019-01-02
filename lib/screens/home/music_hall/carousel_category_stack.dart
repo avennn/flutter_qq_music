@@ -4,25 +4,25 @@ import './category_card.dart' show CategoryCard;
 
 class CarouselCategoryStack extends StatefulWidget {
   @override
-  CarouselCategoryStackState createState() => new CarouselCategoryStackState();
+  CarouselCategoryStackState createState() => CarouselCategoryStackState();
 }
 
 class CarouselCategoryStackState extends State<CarouselCategoryStack> {
   @override
   Widget build(BuildContext context) {
-    return new Stack(
+    return Stack(
       alignment: AlignmentDirectional.bottomCenter,
       children: <Widget>[
-        new Column(
+        Column(
           children: <Widget>[
-            new CarouselComponent(),
-            new Container(
+            CarouselComponent(),
+            Container(
               height: 86.0,
               color: const Color(0xFFFFFFFF),
             )
           ],
         ),
-        new CategoryCard()
+        CategoryCard()
       ],
     );
   }

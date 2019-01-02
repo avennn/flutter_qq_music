@@ -3,49 +3,49 @@ import '../constants/index.dart' show Constants;
 
 class MicroPlayer extends StatefulWidget {
   @override
-  MicroPlayerState createState() => new MicroPlayerState();
+  MicroPlayerState createState() => MicroPlayerState();
 }
 
 class MicroPlayerState extends State<MicroPlayer> {
   final _playerHeight = 56.0;
 
   Widget playBarLeftSide() {
-    return new GestureDetector(
+    return GestureDetector(
       onTap: () {
         print('click micro player song container');
       },
-      child: new Container(
+      child: Container(
         color: Colors.white,
-        child: new Row(
+        child: Row(
           children: <Widget>[
-            new Container(
+            Container(
               margin: EdgeInsets.symmetric(horizontal: 12.0),
               height: 40.0,
               width: 40.0,
-              decoration: new BoxDecoration(
-                borderRadius: new BorderRadius.all(new Radius.circular(20.0)),
-                image: new DecorationImage(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                image: DecorationImage(
                   fit: BoxFit.fill,
                   alignment: FractionalOffset.center,
-                  image: new AssetImage('assets/images/home/brief_recommend_radio_station.jpg'),
+                  image: AssetImage('assets/images/home/brief_recommend_radio_station.jpg'),
                 )
               ),
             ),
-            new Column(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                new Text(
+                Text(
                   '易燃易爆炸(Live)',
-                  style: new TextStyle(
+                  style: TextStyle(
                       color: Constants.defaultFontColor,
                       fontSize: 14.0,
                       fontWeight: FontWeight.w400
                   ),
                 ),
-                new Text(
+                Text(
                   '华晨宇',
-                  style: new TextStyle(
+                  style: TextStyle(
                       color: Constants.defaultFontColor,
                       fontSize: 12.0,
                       fontWeight: FontWeight.w400
@@ -60,32 +60,32 @@ class MicroPlayerState extends State<MicroPlayer> {
   }
 
   Widget playBarRightSide() {
-    return new Row(
+    return Row(
       children: <Widget>[
-        new Container(
+        Container(
           padding: EdgeInsets.only(left: 8.0, right: 6.0),
           height: _playerHeight,
 //          color: Colors.red,
-          child: new GestureDetector(
+          child: GestureDetector(
             onTap: () {
               print('click play button');
             },
-            child: new Icon(
+            child: Icon(
               Icons.play_circle_outline,
               size: 36.0,
               color: Constants.primaryColor,
             )
           ),
         ),
-        new Container(
+        Container(
           padding: EdgeInsets.only(left: 6.0, right: 12.0),
           height: _playerHeight,
 //          color: Colors.blue,
-          child: new GestureDetector(
+          child: GestureDetector(
             onTap: () {
               print('click song list button');
             },
-            child: new Icon(
+            child: Icon(
               Icons.queue_music,
               size: 34.0,
               color: Constants.primaryColor,
@@ -97,9 +97,9 @@ class MicroPlayerState extends State<MicroPlayer> {
   }
 
   Widget playBar() {
-    return new Row(
+    return Row(
       children: <Widget>[
-        new Expanded(
+        Expanded(
           flex: 1,
           child: playBarLeftSide(),
         ),
@@ -109,15 +109,15 @@ class MicroPlayerState extends State<MicroPlayer> {
   }
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
       height: _playerHeight,
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: <BoxShadow>[
-          new BoxShadow(
+          BoxShadow(
             blurRadius: 3.0,
             color: const Color.fromRGBO(127, 127, 127, 0.3),
-            offset: new Offset(0.0, 1.0),
+            offset: Offset(0.0, 1.0),
             spreadRadius: 0.0
           )
         ]

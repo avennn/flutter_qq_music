@@ -15,7 +15,7 @@ import 'package:flutter_qq_music/components/page_carousel.dart' show PageCarouse
 
 class HomeScreen extends StatefulWidget {
   @override
-  HomeScreenState createState() => new HomeScreenState();
+  HomeScreenState createState() => HomeScreenState();
 }
 
 class HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
@@ -28,9 +28,9 @@ class HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
   @override
   void initState() {
     super.initState();
-//    _slideAnimationController = new AnimationController(duration: new Duration(seconds: 1), vsync: this);
-//    _slideAnimation = new Tween<Offset>(begin: new Offset(0.0, 0.0), end: new Offset(1.0, 0.0))
-//      .animate(new CurvedAnimation(parent: _slideAnimationController, curve: Curves.fastOutSlowIn))
+//    _slideAnimationController = AnimationController(duration: Duration(seconds: 1), vsync: this);
+//    _slideAnimation = Tween<Offset>(begin: Offset(0.0, 0.0), end: Offset(1.0, 0.0))
+//      .animate(CurvedAnimation(parent: _slideAnimationController, curve: Curves.fastOutSlowIn))
 //      ..addListener(() {
 //        setState(() {});
 //      })
@@ -39,7 +39,7 @@ class HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
 //        print(status);
 //        print(_slideAnimationController.value);
 //      });
-//    _tabController = new TabController(length: 3, vsync: this, initialIndex: 1);
+//    _tabController = TabController(length: 3, vsync: this, initialIndex: 1);
   }
 
   @override
@@ -89,28 +89,28 @@ class HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
     } else {
       tab = HomeTabs.FIND;
     }
-    StoreProvider.of<AppState>(context).dispatch(new SwitchTabAction(tab));
+    StoreProvider.of<AppState>(context).dispatch(SwitchTabAction(tab));
   }
 
   Widget mainContent() {
-    return new Column(
+    return Column(
         children: <Widget>[
-          new HeaderBar(),
-          new Expanded(
+          HeaderBar(),
+          Expanded(
             flex: 1,
-            child: new StoreConnector<AppState, HomeTabs>(
+            child: StoreConnector<AppState, HomeTabs>(
               builder: (context, tabType) {
-                return new Container(
+                return Container(
                   color: const Color.fromRGBO(250, 250, 250, 1.0),
-                  child: new PageCarousel(
+                  child: PageCarousel(
                     initialIndex: 1,
                     index: transferTabToIndex(tabType),
                     autoPlay: false,
                     onSlide: onSlidePage,
                     children: <Widget>[
-                      new MyBody(),
-                      new MusicHallBody(),
-                      new FindBody(),
+                      MyBody(),
+                      MusicHallBody(),
+                      FindBody(),
                     ]
                   ),
                 );
@@ -118,7 +118,7 @@ class HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
               converter: (store) => store.state.homeState.tabType
             ),
           ),
-          new MicroPlayer()
+          MicroPlayer()
         ]
     );
   }
@@ -127,14 +127,14 @@ class HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
   Widget build(BuildContext context) {
     screenWidth = DeviceInfo().getDeviceWidth(context);
 
-    return new StoreConnector<AppState, HomeState>(
+    return StoreConnector<AppState, HomeState>(
         builder: (context, homeState) {
-          return homeState.showQuickFuncModal ? new Stack(
+          return homeState.showQuickFuncModal ? Stack(
             children: <Widget>[
               mainContent(),
-              new QuickFuncModal()
+              QuickFuncModal()
             ],
-          ) : new Stack(
+          ) : Stack(
             children: <Widget>[
               mainContent()
             ],

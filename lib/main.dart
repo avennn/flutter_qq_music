@@ -9,12 +9,12 @@ import 'package:flutter_qq_music/app_state.dart';
 import 'package:flutter_qq_music/app_reducer.dart' show appReducer;
 
 void main() {
-  final store = new Store<AppState>(
+  final store = Store<AppState>(
     appReducer,
     initialState: AppState.initial(),
     middleware: []
   );
-  runApp(new FlutterQQMusic(store: store));
+  runApp(FlutterQQMusic(store: store));
 }
 
 class FlutterQQMusic extends StatelessWidget {
@@ -24,14 +24,14 @@ class FlutterQQMusic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new StoreProvider<AppState>(
+    return StoreProvider<AppState>(
       store: store,
-      child: new MaterialApp(
+      child: MaterialApp(
         title: 'Flutter QQ Music',
-        theme: new ThemeData(
+        theme: ThemeData(
           primaryColor: Constants.primaryColor
         ),
-        home: new HomeScreen()
+        home: HomeScreen()
       )
     );
   }

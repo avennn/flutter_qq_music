@@ -7,7 +7,7 @@ import 'package:flutter_qq_music/constants/index.dart' show Constants;
 
 class QuickFuncModal extends StatefulWidget {
   @override
-  QuickFuncModalState createState() => new QuickFuncModalState();
+  QuickFuncModalState createState() => QuickFuncModalState();
 }
 
 class QuickFuncModalState extends State<QuickFuncModal> {
@@ -19,34 +19,34 @@ class QuickFuncModalState extends State<QuickFuncModal> {
   final menuBtnPaddingLeft = 15.0;
 
   Widget delta() {
-    return new Container(
+    return Container(
       width: deltaWidth,
       height: deltaHeight,
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.transparent,
-        border: new Border(
-          bottom: new BorderSide(color: Colors.white, width: deltaHeight, style: BorderStyle.solid),
-          top: new BorderSide(color: Colors.transparent, width: 0.0, style: BorderStyle.solid),
-          left: new BorderSide(color: Colors.transparent, width: deltaWidth / 2, style: BorderStyle.solid),
-          right: new BorderSide(color: Colors.transparent, width: deltaWidth / 2, style: BorderStyle.solid)
+        border: Border(
+          bottom: BorderSide(color: Colors.white, width: deltaHeight, style: BorderStyle.solid),
+          top: BorderSide(color: Colors.transparent, width: 0.0, style: BorderStyle.solid),
+          left: BorderSide(color: Colors.transparent, width: deltaWidth / 2, style: BorderStyle.solid),
+          right: BorderSide(color: Colors.transparent, width: deltaWidth / 2, style: BorderStyle.solid)
         )
       ),
     );
   }
 
   Widget menuButton(IconData icon, String text) {
-    return new Row(
+    return Row(
       children: <Widget>[
-        new Icon(
+        Icon(
           icon,
           size: 24.0,
           color: Constants.primaryColor
         ),
-        new Container(
+        Container(
           padding: EdgeInsets.only(left: 13.0),
-          child: new Text(
+          child: Text(
             text,
-            style: new TextStyle(
+            style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w400,
                 fontSize: 15.0
@@ -58,56 +58,56 @@ class QuickFuncModalState extends State<QuickFuncModal> {
   }
 
   Widget panContent() {
-    return new Column(
+    return Column(
       children: <Widget>[
-        new Expanded(
+        Expanded(
           flex: 1,
-          child: new GestureDetector(
+          child: GestureDetector(
             onTap: () {
               print('点击听歌识曲');
             },
-            child: new Container(
+            child: Container(
               padding: EdgeInsets.only(left: menuBtnPaddingLeft),
-              decoration: new BoxDecoration(
+              decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: new BorderRadius.only(topLeft: new Radius.circular(radius), topRight: new Radius.circular(radius))
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(radius), topRight: Radius.circular(radius))
               ),
               child: menuButton(Icons.hearing, '听歌识曲'),
             ),
           ),
         ),
-        new Container(
+        Container(
             height: 0.5,
             color: const Color.fromRGBO(220, 220, 220, 0.8)
         ),
-        new Expanded(
+        Expanded(
           flex: 1,
-          child: new GestureDetector(
+          child: GestureDetector(
             onTap: () {
               print('点击扫一扫');
             },
-            child: new Container(
+            child: Container(
               padding: EdgeInsets.only(left: menuBtnPaddingLeft),
               color: Colors.white,
               child: menuButton(Icons.filter_center_focus, '扫一扫'),
             ),
           ),
         ),
-        new Container(
+        Container(
           height: 0.5,
           color: const Color.fromRGBO(220, 220, 220, 0.8)
         ),
-        new Expanded(
+        Expanded(
           flex: 1,
-          child: new GestureDetector(
+          child: GestureDetector(
             onTap: () {
               print('点击视频海报');
             },
-            child: new Container(
+            child: Container(
               padding: EdgeInsets.only(left: menuBtnPaddingLeft),
-              decoration: new BoxDecoration(
+              decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: new BorderRadius.only(bottomLeft: new Radius.circular(radius), bottomRight: new Radius.circular(radius))
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(radius), bottomRight: Radius.circular(radius))
               ),
               child: menuButton(Icons.live_tv, '视频海报'),
             ),
@@ -119,16 +119,16 @@ class QuickFuncModalState extends State<QuickFuncModal> {
 
   @override
   Widget build(BuildContext context) {
-    return new Stack(
+    return Stack(
       alignment: AlignmentDirectional.topEnd,
       children: <Widget>[
-        new StoreConnector<AppState, VoidCallback>(
+        StoreConnector<AppState, VoidCallback>(
           builder: (context, callback) {
-            return new GestureDetector(
+            return GestureDetector(
               onTap: () {
                 callback();
               },
-              child: new Container(
+              child: Container(
                 width: DeviceInfo().getDeviceWidth(context),
                 height: DeviceInfo().getDeviceHeight(context),
                 color: const Color.fromRGBO(0, 0, 0, 0.2),
@@ -137,26 +137,26 @@ class QuickFuncModalState extends State<QuickFuncModal> {
            },
           converter: (store) {
             // hide modal
-            return () => store.dispatch(new ChangeQuickFuncModalShowStatusAction(false));
+            return () => store.dispatch(ChangeQuickFuncModalShowStatusAction(false));
           }
         ),
-        new Container(
+        Container(
           margin: EdgeInsets.only(top: 64.0 - deltaHeight, right: 4.0),
           width: panWidth,
           height: perColumnHeight * 3 + deltaHeight,
-          child: new Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              new Container(
+              Container(
                 padding: EdgeInsets.only(right: 7.0),
                 child: delta(),
               ),
-              new Container(
+              Container(
                 width: panWidth,
                 height: perColumnHeight * 3,
-                decoration: new BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: new BorderRadius.all(new Radius.circular(radius))
+                  borderRadius: BorderRadius.all(Radius.circular(radius))
                 ),
                 child: panContent(),
               )

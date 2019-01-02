@@ -30,7 +30,7 @@ class CustomCarousel extends StatefulWidget {
     assert(initialIndex >= 0 && initialIndex < childrenCount);
 
   @override
-  _CustomCarouselState createState() => new _CustomCarouselState();
+  _CustomCarouselState createState() => _CustomCarouselState();
 }
 
 class _CustomCarouselState extends State<CustomCarousel> with SingleTickerProviderStateMixin {
@@ -62,7 +62,7 @@ class _CustomCarouselState extends State<CustomCarousel> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(initialIndex: widget.initialIndex, length: widget.childrenCount, vsync: this);
+    _tabController = TabController(initialIndex: widget.initialIndex, length: widget.childrenCount, vsync: this);
 
     if (widget.autoPlay) {
       startAnimating();
@@ -81,7 +81,7 @@ class _CustomCarouselState extends State<CustomCarousel> with SingleTickerProvid
     _timer?.cancel();
 
     //Every widget.displayDuration (time) the tabbar controller will animate to the next index.
-    _timer = new Timer.periodic(widget.autoPlayDuration, (t) => this._tabController.animateTo(
+    _timer = Timer.periodic(widget.autoPlayDuration, (t) => this._tabController.animateTo(
       this.nextIndex,
       curve: widget.animationCurve,
       duration: widget.animationDuration
@@ -90,8 +90,8 @@ class _CustomCarouselState extends State<CustomCarousel> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    return new TabBarView(
-      children: widget.children.map((widget) => new Center(child: widget,)).toList(),
+    return TabBarView(
+      children: widget.children.map((widget) => Center(child: widget,)).toList(),
       controller: this._tabController
     );
   }

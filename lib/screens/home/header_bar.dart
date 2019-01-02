@@ -8,7 +8,7 @@ import 'package:flutter_qq_music/screens/home/reactive.dart' show HomeState, Cha
 
 class HeaderBar extends StatefulWidget {
   @override
-  HeaderBarState createState() => new HeaderBarState();
+  HeaderBarState createState() => HeaderBarState();
 }
 
 class HeaderBarState extends State<HeaderBar> {
@@ -21,16 +21,16 @@ class HeaderBarState extends State<HeaderBar> {
   }
 
   Widget createSideContainer(String side, IconData icon, double size, VoidCallback callback) {
-    return new Container(
+    return Container(
         padding: EdgeInsets.only(top: 20.0),
         width: 44.0,
         height: 64.0,
         color: Constants.primaryColor,
-        child: new Center(
-          child: new Material(
+        child: Center(
+          child: Material(
             color: Constants.primaryColor,
-            child: new IconButton(
-              icon: new Icon(
+            child: IconButton(
+              icon: Icon(
                 icon,
                 color: const Color(0xFFFFFFFF),
                 size: size,
@@ -43,11 +43,11 @@ class HeaderBarState extends State<HeaderBar> {
   }
 
   Widget createHeader() {
-    return new Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        new StoreConnector<AppState, VoidCallback>(
+        StoreConnector<AppState, VoidCallback>(
           builder: (context, callback) {
             return createSideContainer('left', Icons.menu, 24.0, callback);
           },
@@ -56,17 +56,17 @@ class HeaderBarState extends State<HeaderBar> {
 //            return store.dispatch(action);
           }
         ),
-        new Expanded(
+        Expanded(
           flex: 1,
-          child: new HeaderTabs(),
+          child: HeaderTabs(),
         ),
-        new StoreConnector<AppState, VoidCallback>(
+        StoreConnector<AppState, VoidCallback>(
           builder: (context, callback) {
             return createSideContainer('right', Icons.add, 26.0, callback);
           },
           converter: (store) {
             // show quick func modal
-            return () => store.dispatch(new ChangeQuickFuncModalShowStatusAction(true));
+            return () => store.dispatch(ChangeQuickFuncModalShowStatusAction(true));
           }
         )
 
@@ -76,10 +76,10 @@ class HeaderBarState extends State<HeaderBar> {
 
   @override
   Widget build(BuildContext context) {
-    return new Column(
+    return Column(
       children: <Widget>[
         createHeader(),
-        new SearchBar()
+        SearchBar()
       ],
     );
   }

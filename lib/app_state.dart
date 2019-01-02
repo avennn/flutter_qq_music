@@ -10,7 +10,7 @@ class AppState {
   );
 
   static initial() {
-    return new AppState(
+    return AppState(
       HomeState.initial()
     );
   }
